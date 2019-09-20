@@ -1,0 +1,5 @@
+CREATE TABLE tags (
+  id SERIAL PRIMARY KEY NOT NULL,
+  resource_id INTEGER REFERENCES resources(id) ON DELETE CASCADE,
+  category VARCHAR(255)
+);
