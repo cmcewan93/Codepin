@@ -15,18 +15,19 @@ INSERT INTO users (name, email, password) VALUES ('Michael M', 'kira@gmail.com',
 
 -- Resources table
 
-INSERT INTO resources (title, description, created_at)
-  VALUES ('C#', 'Intro to C# Programming', '2019-09-10');
-INSERT INTO resources (title, description, created_at)
-  VALUES ('C++', 'Intro to C++ Programming', '2013-02-08');
-INSERT INTO resources (title, description, created_at)
-  VALUES ('OOP', 'Intro to Object Oriented Programming', '2019-03-07');
-INSERT INTO resources (title, description, created_at)
-  VALUES ('Javascript', 'Javascript Techniques', '2017-05-10');
-INSERT INTO resources (title, description, created_at)
-  VALUES ('CSS', 'CSS Frameworks Tutorials', '2018-07-11');
-INSERT INTO resources (title, description, created_at)
-  VALUES ('HTML', 'HTML basic principles', '2019-07-11');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (1, 'C#', 'Intro to C# Programming', 'C#', '2019-09-10');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (2, 'C++', 'Intro to C++ Programming', 'C++', '2013-02-08');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (3, 'OOP', 'Intro to Object Oriented Programming', 'OOP', '2019-03-07');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (4, 'Javascript', 'Javascript Techniques', 'Javascript', '2017-05-10');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (5, 'CSS', 'CSS Frameworks Tutorials', 'CSS', '2018-07-11');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (6, 'HTML', 'HTML basic principles', 'HTML', '2019-07-11');
+
 
 -- Comments table
 
