@@ -16,6 +16,7 @@ module.exports = (db) => {
       .then(data => {
         const widgets = data.rows;
         res.json({ widgets });
+        console.log(widgets);
       })
       .catch(err => {
         res

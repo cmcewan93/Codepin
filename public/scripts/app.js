@@ -8,14 +8,3 @@ $(() => {
     }
   });;
 });
-
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/resources"
-  }).done((resources) => {
-    for(resource of resources) {
-      $("<div>").text(resources.title).appendTo($("body"));
-    }
-  });;
-});
