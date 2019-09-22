@@ -34,6 +34,7 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
+const resourcesRoutes = require("./routes/resources")
 const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
@@ -41,6 +42,9 @@ const widgetsRoutes = require("./routes/widgets");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
+app.use("/api/resources", resourcesRoutes(db));
+
+// app.use("/resources", resourcesRoutes(db));
 
 
 // Home page
@@ -49,6 +53,11 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get("/resources", (req, res) => {
+  res.render("resources");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
