@@ -14,6 +14,9 @@ module.exports = (db) => {
       .then(data => {
         const users = data.rows;
         res.json({ users });
+        users.forEach(user => {
+          console.log(user.name);
+        });
       })
       .catch(err => {
         res
@@ -21,5 +24,6 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
 };
