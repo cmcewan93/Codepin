@@ -10,3 +10,5 @@ INSERT INTO resources (user_id, title, description, tag, created_at)
   VALUES (5, 'CSS', 'CSS Frameworks Tutorials', 'CSS', '2018-07-11');
 INSERT INTO resources (user_id, title, description, tag, created_at)
   VALUES (6, 'HTML', 'HTML basic principles', 'HTML', '2019-07-11');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (7, 'Java', 'Java basic principles', 'Java', '2019-07-23');

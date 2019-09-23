@@ -6,10 +6,19 @@
 
 const express = require('express');
 const router  = express.Router();
+const resources = require('../lib/getAllResources');
 
-module.exports = () => {
+module.exports = (db) => {
   router.get("/", (req, res) => {
-    res.render("resources");
+    resources.getAllResources(db)
+    .then(data => {
+      res.json({ data });
+    })
+    .catch(err => {
+      res
+      .status(500)
+      .json({ error: err.message });
+    });
   });
   return router;
 };
