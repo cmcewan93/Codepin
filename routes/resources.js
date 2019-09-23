@@ -13,9 +13,7 @@ module.exports = (db) => {
     .then(data => {
       const resources = data.rows;
       res.json({ resources });
-      resources.forEach(resource => {
-        console.log(resource.title);
-      });
+      // res.render("resources");
     })
     .catch(err => {
       res
