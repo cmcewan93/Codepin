@@ -6,29 +6,10 @@
 
 const express = require('express');
 const router  = express.Router();
-const getAllResources = require('../lib/getAllResources');
-
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    //console.log(getAllResources(db, 10));
-    getAllResources.getAllResources(db)
-    .then(data => {
-      //console.log(data);
-      //res.render({ data });
-      data.forEach(resource => {
-       console.log(resource);
-      });
-    })
-    .catch(err => {
-      res
-      .status(500)
-      .json({ error: err.message });
-    });
+    res.render("resources");
   });
-
-  //route
-
-  //route
   return router;
 };
