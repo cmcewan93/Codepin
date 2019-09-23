@@ -11,7 +11,6 @@ const getAllResources = require('../lib/getAllResources');
 
 module.exports = () => {
   router.get("/", (req, res) => {
-<<<<<<< HEAD
     //console.log(getAllResources(db, 10));
     getAllResources.getAllResources(db)
     .then(data => {
@@ -26,9 +25,6 @@ module.exports = () => {
       .status(500)
       .json({ error: err.message });
     });
-=======
-    res.render("resources");
->>>>>>> 702873e87dc8b125f4c42f1e01cb07e7242244f4
   });
 
   //route
