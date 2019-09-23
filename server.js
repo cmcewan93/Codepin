@@ -9,6 +9,16 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
+
+const db = require('./database');
+
+// Cookie session setup
+app.use(cookieSession({
+  name: "session",
+  keys: ["CKK"],
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -33,6 +43,10 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+const loginRoutes = require("./routes/login");
+const logoutRoutes= require("./routes.logout");
+const registerRoutes = require("./routes/register");
+
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
 const resourcesRoutes = require("./routes/resources");
@@ -42,6 +56,10 @@ const widgetsRoutes = require("./routes/widgets");
 // const renderResources = require("./routes/resources");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
+app.use("/register", registerRoutes(db));
+
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
@@ -66,5 +84,5 @@ app.get("/", (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Codepin app listening on port ${PORT}`);
 });
