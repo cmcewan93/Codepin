@@ -72,6 +72,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 //local apis
 app.use("/api/resources", apiResourcesRoutes(db));
+app.use("/api/searchedResources", searchRoutes(db));
 
 //rendering our page with data
 app.use("/resources", resourcesRoutes());

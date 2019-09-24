@@ -14,9 +14,11 @@ module.exports = (db) => {
           res.send({error: "error"});
           return;
         } else {
-          resource.forEach(element => {
-            console.log(element.title);
-          });
+          res.json({ resource });
+          // resource.forEach(element => {
+          //   console.log(element.title);
+          // });
+          // res.render('resources');
           //console.log("asasd", resource);
           // res.send("BAITCH");
         }

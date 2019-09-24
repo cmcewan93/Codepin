@@ -12,3 +12,9 @@ INSERT INTO resources (user_id, title, description, tag, created_at)
   VALUES (6, 'HTML', 'HTML basic principles', 'HTML', '2019-07-11');
 INSERT INTO resources (user_id, title, description, tag, created_at)
   VALUES (7, 'Java', 'Java basic principles', 'Java', '2019-07-23');
+  INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (2, 'CSS', 'CSS Frameworks Tutorials', 'Programming', '2018-07-11');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (2, 'HTML', 'HTML basic principles', 'Programming', '2019-07-11');
+INSERT INTO resources (user_id, title, description, tag, created_at)
+  VALUES (2, 'Java', 'Java basic principles', 'Programming', '2019-07-23');
