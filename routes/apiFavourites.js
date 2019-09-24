@@ -15,6 +15,5 @@ module.exports = (db) => {
         }
       }).catch(err => console.error(null, err.stack));
   });
-
   return router;
 };
