@@ -53,7 +53,7 @@ const favouritesRoute = require("./routes/favourites");
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
 const resourcesRoutes = require("./routes/resources");
-const widgetsRoutes = require("./routes/widgets");
+
 
 
 // const renderResources = require("./routes/resources");
@@ -67,7 +67,7 @@ app.use("/search", searchRoutes(db));
 app.use("/favourites", favouritesRoute(db));
 
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 //local apis
