@@ -34,6 +34,8 @@ const userRegister = function(user) {
   `, [user.name, user.email, user.password])
   .then(res => res.rows)
   .catch(err => console.error(null, err.stack));
-}
+};
 
 exports.userRegister = userRegister;
+
+

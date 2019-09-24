@@ -1,10 +1,11 @@
 const express = require('express');
 const router  = express.Router();
+const getUserByEmail = require('../lib/getUserByEmail');
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
     const {email, password} = req.body;
-    db.userLogin(email, password)
+    getUserByEmail()
       .then(id => {
         if (!id) {
           res.send({error: "error"});
@@ -15,6 +16,5 @@ module.exports = (db) => {
         }
       }).catch(err => console.error(null, err.stack));
   });
-
   return router;
 };
