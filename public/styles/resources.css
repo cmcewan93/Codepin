@@ -12,6 +12,11 @@ body {
   padding: 32px;
 }
 
+#resource-container {
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;

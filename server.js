@@ -13,6 +13,11 @@ const cookieSession = require('cookie-session');
 
 // const db = require('./database');
 
+const { Pool } = require('pg');
+const dbParams = require('./lib/db.js');
+const db = new Pool(dbParams);
+db.connect();
+
 // Cookie session setup
 app.use(cookieSession({
   name: "session",

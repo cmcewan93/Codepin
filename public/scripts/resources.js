@@ -19,9 +19,17 @@ const renderResources = function(resources) {
       img_id = "img#img_" + idNum;
       title_id = "p#title_" + idNum;
       $('#resource-container').prepend(createResourcesElement(element));
-      let language = title_id;
-      $(img_id).click(function() {
-        alert($(language).text());
+      let img = img_id;
+      let title = title_id;
+      //Redirect to a specific resource
+      $(img).click(function() {
+        alert($(title).text());
+      });
+
+      $(img).hover(function() {
+        $(img).css("opacity", 0.5);
+      }, function() {
+        $(img).css("opacity", 1);
       });
     });
   }

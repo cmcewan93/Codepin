@@ -18,15 +18,42 @@
 </head>
 
 <body>
-  <header class="header">
-    <h1 class="logo"><a href="#">Codepin</a></h1>
-      <ul class="main-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/favourites">Favourites</a></li>
-        <li><a href="#">Accounts</a></li>
-
-      </ul>
-  </header>
+<!-- Navbar -->
+<section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="/">Codepin</a>
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/create">Create</a>
+          </li>
+          <li>
+            <a href="/resources">Resources</a>
+          </li>
+          <li>
+            <a href="#">Accounts</a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="/user/:userid">Profile</a>
+              </li>
+              <li>
+                <a href="/resources/:userid">My Resources</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
 
 <!-- Photo Grid -->
 <div class="row" id="resource-container">
