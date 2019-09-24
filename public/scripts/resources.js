@@ -1,19 +1,28 @@
 const createResourcesElement = function(value) {
-  // <img src="${value.imgUrl}">
+  console.log(value.id);
   const $resource = `
   <div class="column">
-    <img src="${value.imgurl}" style="width:100%"/>
+    <img id="img_${value.id}" src="${value.imgurl}" style="width:100%"/>
+    <p id="title_${value.id}">${ value.title }</p>
   </div>
   `;
   return $resource;
 }
 
 const renderResources = function(resources) {
+  let idNum = 0;
+  let img_id = "";
+  let title_id = "";
   for(let resource in resources) {
     resources[resource].forEach(element => {
-      $(document).ready(()=> {
-        $('#resource-container').prepend(createResourcesElement(element));
-      })
+      idNum++;
+      img_id = "img#img_" + idNum;
+      title_id = "p#title_" + idNum;
+      $('#resource-container').prepend(createResourcesElement(element));
+      let language = title_id;
+      $(img_id).click(function() {
+        alert($(language).text());
+      });
     });
   }
 }

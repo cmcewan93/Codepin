@@ -11,37 +11,37 @@
 // // // // //   });;
 // // // // // });
 
-//GET THE RESOURCES from the local api
+// //GET THE RESOURCES from the local api
 
-const createResourcesElement = function(value) {
-  // <img src="${value.imgUrl}">
-  const $resource = `
-  <div class="column">
-    <img src="${value.imgurl}" style="width:100%"/>
-  </div>
-  `;
-  return $resource;
-}
+// const createResourcesElement = function(value) {
+//   // <img src="${value.imgUrl}">
+//   const $resource = `
+//   <div class="column">
+//     <img src="${value.imgurl}" style="width:100%"/>
+//   </div>
+//   `;
+//   return $resource;
+// }
 
-const renderResources = function(resources) {
-  for(let resource in resources) {
-    resources[resource].forEach(element => {
-      $(document).ready(()=> {
-        $('#resource-container').prepend(createResourcesElement(element));
-      })
-    });
-  }
-}
+// const renderResources = function(resources) {
+//   for(let resource in resources) {
+//     resources[resource].forEach(element => {
+//       $(document).ready(()=> {
+//         $('#resource-container').prepend(createResourcesElement(element));
+//       })
+//     });
+//   }
+// }
 
-const loadResources = () => {
-  $.ajax({
-    method: "GET",
-    url: "/api/resources"
-  }).done((resources) => {
-    // console.log(resources, "asjdjahkda");
-    renderResources(resources);
-  });;
-}
+// const loadResources = () => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/resources"
+//   }).done((resources) => {
+//     // console.log(resources, "asjdjahkda");
+//     renderResources(resources);
+//   });;
+// }
 
 
 //GET THE SEARCHED RESOURCES
@@ -62,17 +62,17 @@ const searchResource = () => {
   });;
 }
 
-//GET THE FAVOURITES BY USER
-const loadFavourites = () => {
-  $.ajax({
-    method: "GET",
-    url: "/api/favourites"
-  }).done((resources) => {
-    resources.forEach(element => {
-      console.log(element.imgurl);
-    });
-  });;
-}
+// //GET THE FAVOURITES BY USER
+// const loadFavourites = () => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/favourites"
+//   }).done((resources) => {
+//     resources.forEach(element => {
+//       console.log(element.imgurl);
+//     });
+//   });;
+// }
 
 $(".logout").on("click", function(event) {
   event.preventDefault();
@@ -85,5 +85,5 @@ $(".logout").on("click", function(event) {
     })
 });
 
-loadFavourites();
-loadResources();
+// loadFavourites();
+// loadResources();
