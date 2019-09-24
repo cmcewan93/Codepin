@@ -48,12 +48,14 @@ const logoutRoutes= require("./routes/logout");
 const registerRoutes = require("./routes/register");
 
 const searchRoutes = require("./routes/search");
+
 const favouritesRoute = require("./routes/favourites");
+const apiFavouritesRoute = require("./routes/apiFavourites");
 
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
 const resourcesRoutes = require("./routes/resources");
-const widgetsRoutes = require("./routes/widgets");
+
 
 
 // const renderResources = require("./routes/resources");
@@ -67,17 +69,17 @@ app.use("/search", searchRoutes(db));
 app.use("/favourites", favouritesRoute(db));
 
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 //local apis
 app.use("/api/resources", apiResourcesRoutes(db));
 app.use("/api/searchedResources", searchRoutes(db));
+app.use("/api/apiFavourites", apiFavouritesRoute(db));
 
 //rendering our page with data
 app.use("/resources", resourcesRoutes());
 
-// app.use("/resources", resourcesRoutes(db));
 
 
 // Home page
