@@ -14,7 +14,6 @@
 //GET THE RESOURCES from the local api
 
 const createResourcesElement = function(value) {
-  console.log(value, "asdhakjdhas");
   // <img src="${value.imgUrl}">
   const $resource = `
   <div class="column">
@@ -51,9 +50,8 @@ const searchResource = () => {
     method: "GET",
     url: "/api/searchedResource"
   }).done((resources) => {
-    console.log("aWTFWFWFWF");
     for(resource in resources) {
-      console.log("asjhdakjshd", resources);
+      // console.log("asjhdakjshd", resources);
       resources[resource].forEach(element => {
         // $("<div>").text(element.title).appendTo($("#container"));
         // $("<div>").text(element.description).appendTo($("#container"));
@@ -61,6 +59,18 @@ const searchResource = () => {
 
       });
     }
+  });;
+}
+
+//GET THE FAVOURITES BY USER
+const loadFavourites = () => {
+  $.ajax({
+    method: "GET",
+    url: "/api/favourites"
+  }).done((resources) => {
+    resources.forEach(element => {
+      console.log(element.imgurl);
+    });
   });;
 }
 
@@ -75,4 +85,5 @@ $(".logout").on("click", function(event) {
     })
 });
 
+loadFavourites();
 loadResources();

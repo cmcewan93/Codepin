@@ -1,3 +1,5 @@
+//GET THE RESOURCES from the local api
+
 const createResourcesElement = function(value) {
   // <img src="${value.imgUrl}">
   const $resource = `
@@ -10,22 +12,20 @@ const createResourcesElement = function(value) {
 
 const renderResources = function(resources) {
   for(let resource in resources) {
-    resources[resource].forEach(element => {
-      $(document).ready(()=> {
-        $('#resource-container').prepend(createResourcesElement(element));
-      })
-    });
+    $(document).ready(()=> {
+      $('#resource-container').prepend(createResourcesElement(resources[resource]));
+    })
+    // console.log("asjdkasd", resources[resource].imgurl);
   }
 }
 
-const loadResources = () => {
+//GET THE FAVOURITES BY USER
+const loadFavourites = () => {
   $.ajax({
     method: "GET",
-    url: "/api/resources"
+    url: "/api/favourites"
   }).done((resources) => {
-    // console.log(resources, "asjdjahkda");
     renderResources(resources);
   });;
 }
-
-loadResources();
+loadFavourites();
