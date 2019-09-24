@@ -75,7 +75,7 @@ app.use("/api/users", usersRoutes(db));
 //local apis
 app.use("/api/resources", apiResourcesRoutes(db));
 app.use("/api/searchedResources", searchRoutes(db));
-app.use("/api/apiFavourites", apiFavouritesRoute(db));
+app.use("/api/favourites", apiFavouritesRoute(db));
 
 //rendering our page with data
 app.use("/resources", resourcesRoutes());
