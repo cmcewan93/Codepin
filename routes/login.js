@@ -3,6 +3,10 @@ const router  = express.Router();
 const getUserByEmail = require('../lib/getUserByEmail');
 
 module.exports = (db) => {
+  router.get("/", (req, res) => {
+    res.render("login");
+  });
+
   router.post("/", (req, res) => {
     const {email, password} = req.body;
     getUserByEmail(db, email)
