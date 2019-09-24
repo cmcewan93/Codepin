@@ -11,7 +11,7 @@ const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
 
-const db = require('./database');
+// const db = require('./database');
 
 // Cookie session setup
 app.use(cookieSession({
@@ -44,8 +44,11 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const loginRoutes = require("./routes/login");
-const logoutRoutes= require("./routes.logout");
+const logoutRoutes= require("./routes/logout");
 const registerRoutes = require("./routes/register");
+
+const searchRoutes = require("./routes/search");
+const favouritesRoute = require("./routes/favourites");
 
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
@@ -59,6 +62,9 @@ const widgetsRoutes = require("./routes/widgets");
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
+
+app.use("/search", searchRoutes(db));
+app.use("/favourites", favouritesRoute(db));
 
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));

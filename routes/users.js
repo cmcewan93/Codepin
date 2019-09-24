@@ -15,7 +15,7 @@ module.exports = (db) => {
         const users = data.rows;
         res.json({ users });
         users.forEach(user => {
-          console.log(user.name);
+          // console.log(user.name);
         });
       })
       .catch(err => {
