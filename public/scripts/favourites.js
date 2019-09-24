@@ -1,4 +1,3 @@
-//GET THE RESOURCES from the local api
 
 const createResourcesElement = function(value) {
   // <img src="${value.imgUrl}">
@@ -15,7 +14,6 @@ const renderResources = function(resources) {
     $(document).ready(()=> {
       $('#resource-container').prepend(createResourcesElement(resources[resource]));
     })
-    // console.log("asjdkasd", resources[resource].imgurl);
   }
 }
 
@@ -28,4 +26,20 @@ const loadFavourites = () => {
     renderResources(resources);
   });;
 }
-loadFavourites();
+
+$( document ).ready( () => {
+
+
+  loadFavourites();
+});
+
+//GET THE RESOURCES from the local api
+
+const loadFavourites = () => {
+  $.ajax({
+    method: "GET",
+    url: "/api/favourites"
+  }).done((resources) => {
+    renderResources(resources);
+  })
+};

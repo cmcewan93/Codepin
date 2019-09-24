@@ -1,0 +1,7 @@
+#favourites-title {
+  display: flex;
+  flex-direction: row;
+  font-size: 80px;
+  justify-content: center;
+  margin-top: 5%;
+}

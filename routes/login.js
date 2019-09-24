@@ -5,7 +5,7 @@ const getUserByEmail = require('../lib/getUserByEmail');
 module.exports = (db) => {
   router.post("/", (req, res) => {
     const {email, password} = req.body;
-    getUserByEmail()
+    getUserByEmail(db, email)
       .then(id => {
         if (!id) {
           res.send({error: "error"});
