@@ -18,6 +18,7 @@ CREATE TABLE resources (
   title VARCHAR(255),
   description TEXT,
   tag VARCHAR(255),
+  imgUrl VARCHAR(255),
   created_at TIMESTAMP
 );
 
