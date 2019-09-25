@@ -1,18 +1,21 @@
 const express = require('express');
 const router  = express.Router();
-const resourceById = require("../lib/getResourceById");
+const resourceById = require("../database");
 // const resources = require("../lib/getAllResources");
 
-module.exports = (db) => {
+module.exports = () => {
 
-  router.get("/", (req, res) => {
-    resourceById.getResourceById(db, 10)
+  router.get("/:id", (req, res) => {
+    // console.log('sdfsdfsd' + res);
+    console.log(req.params);
+    resourceById.getResourceById(req.params.id)
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});
           return;
         } else {
           res.json({ resource });
+          console.log("i did it son!")
         }
       }).catch(err => console.error(null, err.stack));
   });
