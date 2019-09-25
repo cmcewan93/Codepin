@@ -76,9 +76,13 @@ app.use("/api/users", usersRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 //local apis
+
 app.use("/api/resources", apiResourcesRoutes(db));
+app.use("/api/resourceById", apiResourceByIdRoute(db));
+
 app.use("/api/searchedResources", searchRoutes(db));
 app.use("/api/favourites", apiFavouritesRoute(db));
+
 app.use("/api/resourceById", apiResourceByIdRoute(db));
 app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db))
 

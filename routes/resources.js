@@ -13,32 +13,21 @@ module.exports = () => {
     res.render("resources");
   });
 
-  router.get("/", (req, res) => {
-    resources.getAllResources()
-    .then(data => {
-      res.json({ data });
-    })
-    .catch(err => {
-      res
-      .status(500)
-      .json({ error: err.message });
-    });
+  router.get("/:id", (req, res) => {
+    // console.log('sdfsdfsd' + res);
+    console.log("i got here");
+    console.log(req.params);
+    resources.getResourceById(req.params.id)
+      .then(resource => {
+        if (!resource) {
+          res.send({error: "error"});
+          return;
+        } else {
+          res.json({ resource });
+          // console.log("i did it son!")
+        }
+      }).catch(err => console.error(null, err.stack));
   });
-
-  // router.get("/:id", (req, res) => {
-  //   // console.log('sdfsdfsd' + res);
-  //   console.log("sadasd", req.params)
-  //   resourceById.getResourceById(db, req.params)
-  //     .then(resource => {
-  //       if (!resource) {
-  //         res.send({error: "error"});
-  //         return;
-  //       } else {
-  //         res.json({ resource });
-  //         res.render("resourceById");
-  //       }
-  //     }).catch(err => console.error(null, err.stack));
-  // });
 
   return router;
 };

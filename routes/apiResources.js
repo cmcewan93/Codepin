@@ -20,5 +20,6 @@ module.exports = () => {
       .json({ error: err.message });
     });
   });
+
   return router;
 };
