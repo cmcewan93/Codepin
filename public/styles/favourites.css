@@ -1,4 +1,5 @@
 #favourites-title {
+  color: black;
   display: flex;
   flex-direction: row;
   font-size: 80px;
