@@ -12,8 +12,13 @@
   <link rel="stylesheet" href="/styles/nav.css">
   <link rel="stylesheet" href="/styles/index.css">
   <link rel="stylesheet" href="/styles/favourites.css">
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
   <script type="text/javascript" src="/scripts/favourites.js"></script>
+
+
 </head>
 <section class="navigation">
     <div class="nav-container">
@@ -53,10 +58,14 @@
   
 <body>
 
+
+  
+
 <main class="main-container">
   <h1 id= "favourites-title">
     FAVOURITES
   </h1>
+  
   <div id="favourite-container">
     <div class="row" >
       
@@ -66,8 +75,27 @@
 
 </main>
 
+<!-- <div class="modal fade" id="favouriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="favouriteModalLongTitle">${resource.title}</h5>
+          <h5 class="modal-title" id ="favouriteModalDate">Created at: ${date}</h5>
+        </div>
+        <div class="modal-body">
+          <h5 class="modal-description" id="favourite-description"> Description </h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
 <!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script> -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>
 
 </body>

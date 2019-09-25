@@ -1,3 +1,7 @@
+/*
+ Favourites Container
+*/
+
 #favourites-title {
   color: black;
   display: flex;
@@ -13,6 +17,23 @@
   flex-direction: row;
   justify-content: center;
 } 
+
+/*
+  Favourites Modal
+*/
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+
+}
+
+#modal-body-left {
+  width: 40%;
+}
+.modal-image {
+  width: 100%;
+}
 
 * {
   box-sizing: border-box;
