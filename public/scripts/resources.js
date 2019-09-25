@@ -1,5 +1,5 @@
 const createResourcesElement = function(value) {
-  console.log(value.id);
+  // console.log(value.id);
   const $resource = `
   <div class="column">
     <img id="img_${value.id}" src="${value.imgurl}" style="width:100%"/>

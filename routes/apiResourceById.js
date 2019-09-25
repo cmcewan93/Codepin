@@ -4,13 +4,14 @@ const resourceById = require("../lib/getResourceById")
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    console.log('sdfsdfsd' + res);
     resourceById.getResourceById(db, 10)
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});
           return;
         } else {
-          res.send(resource);
+          res.json({ resource });
         }
       }).catch(err => console.error(null, err.stack));
   });
