@@ -48,6 +48,8 @@ const logoutRoutes= require("./routes/logout");
 const registerRoutes = require("./routes/register");
 
 const searchRoutes = require("./routes/search");
+const apiResourceByIdRoute = require("./routes/apiResourceById");
+const resourceByIdRoute = require("./routes/resourceById");
 
 const favouritesRoute = require("./routes/favourites");
 const apiFavouritesRoute = require("./routes/apiFavourites");
@@ -76,10 +78,11 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/resources", apiResourcesRoutes(db));
 app.use("/api/searchedResources", searchRoutes(db));
 app.use("/api/favourites", apiFavouritesRoute(db));
+app.use("/api/resourceById", apiResourceByIdRoute(db));
 
 //rendering our page with data
 app.use("/resources", resourcesRoutes());
-
+app.use("/resources/:id", resourceByIdRoute());
 
 
 // Home page

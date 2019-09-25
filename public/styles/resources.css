@@ -16,6 +16,11 @@ body {
   margin-left: 5em;
   margin-right: 5em;
 }
+div#resourceInfo {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
 
 .row {
   display: -ms-flexbox; /* IE10 */

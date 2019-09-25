@@ -1,9 +1,13 @@
 const createResourcesElement = function(value) {
-  console.log(value.id);
+  // console.log(value.id);
   const $resource = `
   <div class="column">
-    <img id="img_${value.id}" src="${value.imgurl}" style="width:100%"/>
-    <p id="title_${value.id}">${ value.title }</p>
+    <div class="card" style="width: 18rem;">
+      <img id="img_${ value.id } class="card-img-top" src="${ value.imgurl }" alt="Card image cap">
+      <div class="card-body">
+        <p id="title_${ value.id } class="card-text"> ${ value.title } </p>
+      </div>
+    </div>
   </div>
   `;
   return $resource;
@@ -23,7 +27,8 @@ const renderResources = function(resources) {
       let title = title_id;
       //Redirect to a specific resource
       $(img).click(function() {
-        alert($(title).text());
+        // alert($(title).text());
+        window.location.href = `/resources/${ element.id }`;
       });
 
       $(img).hover(function() {
