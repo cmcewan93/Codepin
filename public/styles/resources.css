@@ -16,6 +16,9 @@ body {
   margin-left: 5em;
   margin-right: 5em;
 }
+.p-3 {
+  background-color: gray;
+}
 div#resourceInfo {
   position: absolute;
   bottom: 8px;

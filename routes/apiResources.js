@@ -6,11 +6,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const resources = require('../lib/getAllResources');
+const resources = require('../database');
 
-module.exports = (db) => {
+module.exports = () => {
   router.get("/", (req, res) => {
-    resources.getAllResources(db)
+    resources.getAllResources()
     .then(data => {
       res.json({ data });
     })

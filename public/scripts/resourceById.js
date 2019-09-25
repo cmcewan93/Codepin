@@ -22,7 +22,6 @@ const renderResources = function(resources) {
 
 //GET THE FAVOURITES BY USER
 const loadResourceById = () => {
-  console.log("asd");
   $.ajax({
     method: "GET",
     url: "/api/resourceById"
