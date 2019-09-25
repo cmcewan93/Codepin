@@ -37,13 +37,16 @@
           <a href="/resources">Resources</a>
         </li>
         <li>
-          <a href="#">Accounts</a>
+          <a href="#">Account</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="/user/:userid">Profile</a>
+              <a href="/user/:username">Profile</a>
             </li>
             <li>
-              <a href="/resources/:userid">My Resources</a>
+                <a href="/favourites/:username">My Favourites</a>
+              </li>
+            <li>
+              <a href="/resources/:username">My Resources</a>
             </li>
           </ul>
         </li>
@@ -63,9 +66,9 @@
 
     <hr>
 
-    <form method="GET" action="/search" class='form-inline'>
-      <input name="tag" class='form-control' placeholder='Search'>
-      <button type="submit" class='btn btn-default'>Search</button>
+    <form class='form-inline'>
+      <input id='search' class='form-control' type='search' placeholder='Search'>
+      <button class='btn btn-default'>Search</button>
     </form>
 
     <p id='footer'>Presented to you by: Colin, Karl and Kevin</p>
