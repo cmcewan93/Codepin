@@ -17,7 +17,7 @@ const createResourcesElement = function(value) {
 
 /**
  * Adds a favourite to page and creates click event on each element that toggles the modal
- * @param {*} resources 
+ * @param {*} resources
  */
 const renderResources = function(resources) {
   for(let resource in resources) {
@@ -43,7 +43,7 @@ const loadFavourites = () => {
 
 /**
  * Dynamically creates a modal with the resource data passed in
- * @param {} resource 
+ * @param {} resource
  */
 
 const loadFavouriteModal = (resource) => {
@@ -60,7 +60,7 @@ const loadFavouriteModal = (resource) => {
       </div>
       <div class="modal-body">
         <div id="modal-body-left">
-         <img src="${resource.imgurl}" class="modal-image"></img> 
+         <img src="${resource.imgurl}" class="modal-image"></img>
       </div>
         <div id="modal-body-right">
           <p>${resource.description}</p>
@@ -68,7 +68,7 @@ const loadFavouriteModal = (resource) => {
       </div>
       <div class="modal-footer">
         <div id="modal-footer-left>
-   
+
         </div>
         <div id="modal-footer-right">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

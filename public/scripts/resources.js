@@ -4,7 +4,7 @@ const createResourcesElement = function(value) {
   const renderedResourcesArray = [];
   if(!value.imgurl) {
     renderedResourcesArray.push(`
-    <div id="${ value.id }" class="card text-white text-center p-3">
+    <div id="${ value.id }" class="card text-white text-center p-3" data-toggle="modal" data-target="#exampleModalCenter">
       <blockquote class="blockquote mb-0">
         <p>${ value.description }</p>
         <footer class="blockquote-footer">
@@ -17,13 +17,13 @@ const createResourcesElement = function(value) {
     `)
   } else if(!value.title && !value.description) {
     renderedResourcesArray.push(`
-    <div id="${ value.id }" class="card">
+    <div id="${ value.id }" class="card" data-toggle="modal" data-target="#exampleModalCenter">
       <img class="card-img" src="${ value.imgurl }" alt="Card image">
     </div>
     `)
   } else {
     renderedResourcesArray.push(`
-    <div id="${ value.id }" class="card">
+    <div id="${ value.id }" class="card" data-toggle="modal" data-target="#exampleModalCenter">
       <img class="card-img-top" src="${ value.imgurl }" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">${ value.title }</h5>
@@ -64,7 +64,9 @@ const renderResources = function(resources) {
       //Redirect to a specific resource
       $(`#${ element.id }`).click(function() {
         // alert($(title).text());
-        window.location.href = `/resources/${ element.id }`;
+        // window.location.href = `/resources/${ element.id }`;
+        loadResourceModal(element);
+        $('#resourceModal').modal('toggle');
       });
 
       $(`#${ element.id }`).hover(function() {
@@ -74,6 +76,57 @@ const renderResources = function(resources) {
       });
     });
   }
+}
+
+/**
+ * Dynamically creates a modal with the resource data passed in
+ * @param {} resource
+ */
+
+const loadResourceModal = (resource) => {
+  $('#resourceModal').remove();
+  let date = convertDate(resource.created_at);
+  console.log(date);
+  $('body').append(`
+  <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+  <div class = "modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="resourceModalLongTitle">${resource.title}</h3>
+        <h3 class="modal-title" id ="resourceModalDate">Created at: ${date}</h3>
+      </div>
+      <div class="modal-body">
+        <div id="modal-body-left">
+         <img src="${resource.imgurl}" class="modal-image"></img>
+      </div>
+        <div id="modal-body-right">
+          <p>${resource.description}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-footer-left>
+
+        </div>
+        <div id="modal-footer-right">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+  `)
+}
+
+
+const convertDate = (dateobj) => {
+  let date = new Date(dateobj);
+
+  // console.log(dateobj);
+  // console.log(date.getMonth());
+  let fdate = (date.getMonth() + 1)+'/'+ date.getDate()  +'/'+date.getFullYear()
+  return fdate;
 }
 
 const loadResources = () => {
@@ -92,7 +145,7 @@ const loadFavouriteModal = (resource) => {
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -106,7 +159,7 @@ const loadFavouriteModal = (resource) => {
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
   </div>
   `)
