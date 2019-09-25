@@ -67,8 +67,13 @@ const loadFavouriteModal = (resource) => {
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
+        <div id="modal-footer-left>
+   
+        </div>
+        <div id="modal-footer-right">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
+         </div>
       </div>
     </div>
   </div>
@@ -77,7 +82,10 @@ const loadFavouriteModal = (resource) => {
 }
 
 const convertDate = (dateobj) => {
-  let date = new Date(parseInt(dateobj));
+  let date = new Date(dateobj);
+
+  // console.log(dateobj);
+  // console.log(date.getMonth());
   let fdate = (date.getMonth() + 1)+'/'+ date.getDate()  +'/'+date.getFullYear()
   return fdate;
 }

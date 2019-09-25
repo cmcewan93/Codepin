@@ -8,15 +8,12 @@ const favourites = require("../database")
  */
 module.exports = () => {
   router.get("/", (req, res) => {
-    //Get favourites for user that is logged in
-    favourites.getFavouritesByUser(1)
+    //delete favourite from database
+    favourites.deleteFavourite()
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});
           return;
-        } else {
-          res.send(resource);
-          
         }
       }).catch(err => console.error(null, err.stack));
   });

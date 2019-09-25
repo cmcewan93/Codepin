@@ -53,6 +53,7 @@ const resourceByIdRoute = require("./routes/resourceById");
 
 const favouritesRoute = require("./routes/favourites");
 const apiFavouritesRoute = require("./routes/apiFavourites");
+const apiDeleteFavouriteRoute = require("./routes/apiDeleteFavourite");
 
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
@@ -79,6 +80,7 @@ app.use("/api/resources", apiResourcesRoutes(db));
 app.use("/api/searchedResources", searchRoutes(db));
 app.use("/api/favourites", apiFavouritesRoute(db));
 app.use("/api/resourceById", apiResourceByIdRoute(db));
+app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db))
 
 //rendering our page with data
 app.use("/resources", resourcesRoutes());

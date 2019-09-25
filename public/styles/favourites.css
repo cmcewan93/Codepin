@@ -28,11 +28,24 @@
 
 }
 
+#modal-favourite {
+  background-color: red;
+}
+
+.modal-header {
+  
+}
+
+
 #modal-body-left {
   width: 40%;
 }
 .modal-image {
   width: 100%;
+}
+
+.modal-footer {
+  background-color: #262626;
 }
 
 * {
