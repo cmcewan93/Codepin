@@ -1,10 +1,11 @@
 const express = require('express');
 const router  = express.Router();
-const resourceById = require("../lib/getResourceById")
+const resourceById = require("../lib/getResourceById");
+// const resources = require("../lib/getAllResources");
 
 module.exports = (db) => {
+
   router.get("/", (req, res) => {
-    console.log('sdfsdfsd' + res);
     resourceById.getResourceById(db, 10)
       .then(resource => {
         if (!resource) {

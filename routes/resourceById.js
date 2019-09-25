@@ -9,6 +9,7 @@ const router  = express.Router();
 
 module.exports = () => {
   router.get("/", (req, res) => {
+    // console.log("wTF", req)
     res.render("resourceById");
   });
   return router;
