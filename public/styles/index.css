@@ -25,6 +25,12 @@ h1 {
   margin-bottom: 50px;
 }
 
+.logohome {
+  position: relative;
+  width: 360px;
+  height: 252px;
+}
+
 hr {
 		width: 1000px;
     height: 1px;
