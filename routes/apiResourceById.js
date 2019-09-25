@@ -7,15 +7,16 @@ module.exports = () => {
 
   router.get("/:id", (req, res) => {
     // console.log('sdfsdfsd' + res);
-    console.log(req.params);
-    resourceById.getResourceById(req.params.id)
+    console.log("i got here");
+    console.log(req.params.id)
+    resourceById.getResourceById(10)
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});
           return;
         } else {
           res.json({ resource });
-          console.log("i did it son!")
+          // console.log("i did it son!")
         }
       }).catch(err => console.error(null, err.stack));
   });

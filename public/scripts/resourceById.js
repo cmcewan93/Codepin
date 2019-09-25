@@ -24,7 +24,7 @@ const renderResources = function(resources) {
 const loadResourceById = () => {
   $.ajax({
     method: "GET",
-    url: "/api/resourceById"
+    url: "/resources/:id"
   }).done((resources) => {
     // res.send(resources);
     renderResources(resources);
