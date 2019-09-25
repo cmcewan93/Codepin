@@ -47,7 +47,8 @@ a {
   color: #666;
 }
 .input-email,
-.input-password {
+.input-password,
+.input-username {
   width: 100%;
   background: #DDD;
   border-radius: 4px;
@@ -63,7 +64,8 @@ a {
   text-align: center;
 }
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="username"] {
   width: 100%;
   border: 0;
   background: none;
@@ -89,7 +91,7 @@ input[type="submit"] {
   width: 70%;
   padding: 40px;
   height: 100vh;
-  background: url('/images/register.jpg') center no-repeat;
+  background: url('/images/lhl.jpg') center no-repeat;
   background-size: cover;
   display: flex;
   flex-wrap: wrap;
