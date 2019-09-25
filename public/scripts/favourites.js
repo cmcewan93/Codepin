@@ -5,7 +5,7 @@ const createResourcesElement = function(value) {
       <header class="favourite-header">
         <span>${value.title}</span>
       </header>
-      <img src="${value.imgurl}" class="favourite-image" style="width:100% data-toggle="modal" data-target="#exampleModalCenter"/>
+      <img src="${value.imgurl}" class="favourite-image" style="width:100%" data-toggle="modal" data-target="#exampleModalCenter"/>
       <footer class="favourite-footer">
         ${convertDate(value.created_at)}
       </footer>
@@ -27,6 +27,11 @@ const renderResources = function(resources) {
     console.log(resources[resource]);
     loadFavouriteModal(resources[resource]);
      $('#favouriteModal').modal('toggle');
+  });
+  $(`#modal-favourite-button`).on('click', function(e) {
+    e.preventDefault();
+   
+
   });
   }
 }
@@ -72,7 +77,7 @@ const loadFavouriteModal = (resource) => {
         </div>
         <div id="modal-footer-right">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
+          <button type="button" class="btn btn-primary" id="modal-favourite-button">Unfavourite</button>
          </div>
       </div>
     </div>
