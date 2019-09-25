@@ -10,20 +10,19 @@ const createResourcesElement = function(value) {
 }
 
 const renderResources = function(resources) {
-  let idNum = 0;
   let img_id = "";
   let title_id = "";
   for(let resource in resources) {
     resources[resource].forEach(element => {
-      idNum++;
-      img_id = "img#img_" + idNum;
-      title_id = "p#title_" + idNum;
+      img_id = "img#img_" + element.id;
+      title_id = "p#title_" + element.id;
       $('#resource-container').prepend(createResourcesElement(element));
       let img = img_id;
       let title = title_id;
       //Redirect to a specific resource
       $(img).click(function() {
         alert($(title).text());
+        window.location.href = `/resources/${element.id}`;
       });
 
       $(img).hover(function() {
