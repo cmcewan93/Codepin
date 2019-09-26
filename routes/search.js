@@ -4,20 +4,15 @@ const search = require("../database")
 
 module.exports = () => {
   router.get("/", (req, res) => {
-   // const {tag} = req.body;
-   // console.log(req.query);
-    //console.log('Logging req body    ', req.body )
-    console.log(req.query.tag);
-    search.searchByTag(req.query.tag)
-      .then(resource => {
-        console.log('this is the resource', resource)
-        if (!resource) {
-          res.send({error: "error"});
-          return;
-        } else {
-          res.json({ resource });
-        }
-      }).catch(err => console.error(null, err.stack));
+    let templateVars = {};
+    console.log("id", req.session.userId);
+    console.log("WTF", req.body)
+    Promise.all([search.getUser(req.session.userId)])
+      .then((values) => {
+        templateVars.user = values[0];
+        res.render("searchedResource", templateVars);
+      })
+      .catch(err => console.error(null, err.stack));
   });
 
   return router;

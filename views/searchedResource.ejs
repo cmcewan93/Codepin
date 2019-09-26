@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Codepin Resources</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  <link rel="stylesheet" href="/styles/nav.css">
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/favourites.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="/scripts/dropdown.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- <script src="/scripts/search.js"></script> -->
+</head>
+
+<body>
+<!-- Navbar -->
+<header>
+    <% include ./partials/_header %>
+</header>
+
+<!-- Photo Grid -->
+<div id="searched-resources" class="card-columns">
+
+  <% for(let resource in resources) { %>
+    <% if(!resources[resource].imgurl) {%>
+      <div class="card text-white text-center p-3" data-toggle="modal" data-target="#exampleModalCenter">
+          <blockquote class="blockquote mb-0">
+            <p><%= resources[resource].description %></p>
+            <footer class="blockquote-footer">
+              <small>
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+    <% } else if(!resources[resource].title && !resources[resource].description) { %>
+      <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+          <img class="card-img" src="<%= resources[resource].imgurl %>" alt="Card image">
+        </div>
+    <% } else { %>
+      <div id="${ value.id }" class="card" data-toggle="modal" data-target="#exampleModalCenter">
+          <img class="card-img-top" src="<%= resources[resource].imgurl %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= resources[resource].title %></h5>
+            <p class="card-text"><%= resources[resource].description %></p>
+          </div>
+        </div>
+    <% } %>
+  <% } %>
+</div>
+<!-- partial -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>
+
+</body>
+</html>
