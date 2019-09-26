@@ -48,7 +48,9 @@ const logoutRoutes= require("./routes/logout");
 const registerRoutes = require("./routes/register");
 const myResourceRoutes = require("./routes/my_resources");
 
-const searchRoutes = require("./routes/search");
+const apiSearchRoute = require("./routes/apiSearchRoute");
+const searchRoute = require("./routes/search");
+
 const apiResourceByIdRoute = require("./routes/apiResourceById");
 const resourceByIdRoute = require("./routes/resourceById");
 
@@ -83,7 +85,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/resources", apiResourcesRoutes(db));
 app.use("/api/resourceById", apiResourceByIdRoute(db));
 
-app.use("/api/searchedResources", searchRoutes(db));
+app.use("/api/searchedResources", apiSearchRoute(db));
 app.use("/api/favourites", apiFavouritesRoute(db));
 
 app.use("/api/resourcesByUser", apiResourcesByUserRoutes(db));
@@ -93,6 +95,7 @@ app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db));
 app.use("/create", createResourceRoute(db));
 //rendering our page with data
 
+app.use("/search", searchRoute());
 app.use("/resources", resourcesRoutes());
 app.use("/resources/:id", resourceByIdRoute());
 

@@ -14,5 +14,19 @@ module.exports = () => {
       .catch(err => console.error(null, err.stack));
   });
 
+  router.get("/", (req, res) => {
+    console.log("?????", req);
+    search.searchByTag("Programming")
+      .then(resource => {
+        console.log('this is the resource', resource)
+        if (!resource) {
+          res.send({error: "error"});
+          return;
+        } else {
+          res.json({ resource });
+        }
+      }).catch(err => console.error(null, err.stack));
+  });
+
   return router;
 };

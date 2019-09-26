@@ -14,16 +14,18 @@ module.exports = () => {
   });
 
   router.post("/", (req, res) => {
-    const resource = req.body;
-    console.log(resource);
-    create.createResource(resource)
+    // const resource = req.body;
+    const templateVars = { user_id: req.session.userId, title: req.body.title, description: req.body.description,
+    tag: req.body.tag, siteUrl: req.body.siteUrl, imgUrl:  req.body.imgUrl};
+    console.log(templateVars);
+    create.createResource(templateVars)
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});
           return;
         } else {
-          // res.redirect("/resources");
-          res.send("created?");
+          res.redirect("/my_resources");
+          // res.send("created?");
         }
       }).catch(err => console.error(null, err.stack));
   });

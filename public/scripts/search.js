@@ -64,3 +64,5 @@ const searchResource = () => {
     renderResources(resources);
   });;
 }
+
+searchResource();

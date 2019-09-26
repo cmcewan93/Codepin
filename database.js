@@ -144,7 +144,7 @@ const createResource = (resource) => {
   return pool.query(`
     INSERT INTO resources (user_id, title, description, tag, siteUrl, imgUrl, created_at)
     VALUES ($1, $2, $3, $4, $5, $6, $7);
-  `, [1, resource.title, resource.description, resource.tag, resource.url, resource.imgUrl, "2019-09-25"])
+  `, [resource.user_id, resource.title, resource.description, resource.tag, resource.url, resource.imgUrl, "2019-09-25"])
   .then(res => res.rows)
   .catch(err => console.error(null, err.stack));
 };
