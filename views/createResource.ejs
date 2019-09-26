@@ -19,30 +19,31 @@
   <% include ./partials/_header %>
 </header>
 
+<!-- <form class="login"> -->
 
-  <fieldset>
+  <fieldset class="create-form ">
 
   	<legend class="legend">Create a Resource</legend>
     <form class="form-create" action="/create" method="POST">
 
       <div class="input">
-        <input name="title" type="text" placeholder="Title" required />
+        <input name="title" type="text" placeholder="Title" autocomplete="off" required />
         <span><i class="fa fa-home"></i></span>
       </div>
 
       <div class="input">
-        <input name="description" type="text" placeholder="Description" />
+        <input name="description" type="text" autocomplete="off" placeholder="Description" />
         <span><i class="fa fa-info-circle"></i></span>
       </div>
 
 
       <div class="input">
-        <input name="siteUrl" type="text" placeholder="Resource URL" required />
+        <input name="siteUrl" type="text" placeholder="Resource URL" autocomplete="off" required />
         <span><i class="fa fa-file-code-o"></i></span>
       </div>
 
       <div class="input">
-        <input name="imgUrl" type="text" placeholder="Image URL" required />
+        <input name="imgUrl" type="text" placeholder="Image URL" autocomplete="off" required />
         <span><i class="fa fa-file-picture-o"></i></span>
       </div>
 
