@@ -7,12 +7,14 @@ module.exports = () => {
     res.render("login");
   });
 
-  router.post("/login", (req, res) => {
+  router.post("/", (req, res) => {
     const {email, password} = req.body;
+    console.log("credential", {email, password});
     console.log("login")
-    console.log(req.body)
+    console.log("at login", req)
     db.userLogin(email, password)
       .then(id => {
+        console.log('asdasd', id);
         if (!id) {
           res.send({"code":204, "success": "Email and password do not match"});
           return;

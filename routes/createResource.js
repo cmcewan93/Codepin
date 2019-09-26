@@ -22,7 +22,6 @@ module.exports = () => {
           res.send({error: "error"});
           return;
         } else {
-          console.log("FUCK THIS SHIT");
           // res.redirect("/resources");
           res.send("created?");
         }
