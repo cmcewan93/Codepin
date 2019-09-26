@@ -41,7 +41,7 @@ app.use(express.static("public"));
 const loginRoutes = require("./routes/login");
 const logoutRoutes= require("./routes/logout");
 const registerRoutes = require("./routes/register");
-const myResourceRoutes = require("./routes/my_resources")
+const myResourceRoutes = require("./routes/my_resources");
 
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
