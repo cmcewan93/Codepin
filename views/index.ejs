@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="/styles/nav.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script> -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script src="/scripts/dropdown.js"></script>
+
 
 
 </head>
@@ -37,22 +43,33 @@
           <a href="/resources">Resources</a>
         </li>
         <li>
-          <a href="#">Account</a>
+        <% if (!user) { %>
+          <li>
+            <a href="/login">Login</a>
+          </li>
+          <li>
+            <a href="/register">Register</a>
+          </li>
+        <% } else { %>
+          <a href="#"><%=user[0].name%>'s Account</a>
           <ul class="nav-dropdown">
             <li>
               <a href="/user/:username">Profile</a>
             </li>
             <li>
                 <a href="/favourites/:username">My Favourites</a>
-              </li>
+            </li>
             <li>
               <a href="/my_resources">My Resources</a>
             </li>
+            <li>
+                <form class="dropform" method="POST" action="/logout">
+                  <button class= "logout">Logout</button>
+                </form>
+            </li>
           </ul>
         </li>
-        <li>
-          <a href="/">Logout</a>
-        </li>
+        <% } %>
       </ul>
     </nav>
   </div>
@@ -77,11 +94,6 @@
 </div>
 
 <!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>
-<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<script type="text/javascript" src="/scripts/app.js"></script>
-<script src="scripts/dropdown.js"></script>
 
 </body>
 </html>
