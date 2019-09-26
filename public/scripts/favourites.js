@@ -45,9 +45,6 @@ const renderResources = function(resources) {
       $(`#${ resources[resource].resource_id }`).css("opacity", 1);
     });
     console.log('dsfdsfsdfas', resources[resource].siteurl);
-     /**
-      * Redirect button to associated URL in modal
-      */
   }
 }
 
@@ -60,6 +57,19 @@ const loadFavourites = () => {
     renderResources(resources);
   });;
 }
+ 
+const deleteFavourite = (favourite_id) => {
+  console.log('ajax request:', favourite_id);
+  $.ajax({
+    method: 'POST',
+    url: '/api/favourites/delete',
+    data: {favourite_id}
+  }).then(() => {
+    loadFavourites();
+  })
+}
+
+
 
 /**
  * Dynamically creates a modal with the resource data passed in
@@ -67,12 +77,17 @@ const loadFavourites = () => {
  */
 
 const loadFavouriteModal = (resource) => {
-  //console.log(resource);
+  console.log('This is your resource ', resource);
+  /**
+   * Removes current modal and event handlers associated with it
+   */
   $('#favouriteModal').remove();
   $('#favouriteModal').on('hidden', function (e) {
-    $(e.currentTarget).unbind(); // or $(this)        
+    $('#modal-favourite-button').unbind(); // or $(this)        
 });
+  //convert date for modal
   let date = convertDate(resource.created_at);
+
   $('body').append(`
   <div class="modal fade" id="favouriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
@@ -101,17 +116,30 @@ const loadFavouriteModal = (resource) => {
   </div>
 </div>
   `)
+
+  /**
+   * Redirect user to the resource site url
+   */
+
   $(`#modal-redirect-button`).click(function(e) {
      e.preventDefault();
-     $(location).attr('href', 'http://stackoverflow.com')
+     $(location).attr('href', `${resource.siteurl}`)
   });
+
+  /**
+   * Remove favourite from user's favourites on click
+   */
+
+  $(`#modal-favourite-button`).click(function(e) {
+    console.log('deleting favourite', resource.favourite_id )
+    e.preventDefault();
+    deleteFavourite(resource.favourite_id);
+ });
 }
 
+// Date conversion helper function
 const convertDate = (dateobj) => {
   let date = new Date(dateobj);
-
-  // console.log(dateobj);
-  // console.log(date.getMonth());
   let fdate = (date.getMonth() + 1)+'/'+ date.getDate()  +'/'+date.getFullYear()
   return fdate;
 }
@@ -122,3 +150,4 @@ $(document).ready(()=> {
 loadFavourites();
 
 })
+

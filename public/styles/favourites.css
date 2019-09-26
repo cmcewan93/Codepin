@@ -58,6 +58,10 @@ body {
   width: 40%;
 }
 
+.modal-title {
+  margin-left: 35%;
+}
+
 .modal-image {
   width: 100%;
 }

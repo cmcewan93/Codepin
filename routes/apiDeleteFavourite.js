@@ -4,12 +4,13 @@ const favourites = require("../database")
 
 
 /**
- * API route to retrieve a user's favourites
+ * API route to delete a user's favourites
  */
 module.exports = () => {
-  router.get("/", (req, res) => {
-    //delete favourite from database
-    favourites.deleteFavourite()
+  router.post("/", (req, res) => {
+    console.log('HERES THE ID TO DELETE', req.body);
+   let id = req.body.favourite_id;
+    favourites.deleteFavourite(id)
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});

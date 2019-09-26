@@ -86,11 +86,10 @@ app.use("/api/searchedResources", searchRoutes(db));
 
 app.use("/api/favourites", apiFavouritesRoute(db));
 app.use("/favourites", favouritesRoute(db));
-app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db))
+app.use("/api/favourites/delete", apiDeleteFavouriteRoute(db))
 
 app.use("/api/resourcesByUser", apiResourcesByUserRoutes(db));
 app.use("/api/resourceById", apiResourceByIdRoute(db));
-app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db));
 
 app.use("/create", createResourceRoute(db));
 //rendering our page with data
