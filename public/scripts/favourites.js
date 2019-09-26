@@ -45,7 +45,9 @@ const renderResources = function(resources) {
       $(`#${ resources[resource].resource_id }`).css("opacity", 1);
     });
     console.log('dsfdsfsdfas', resources[resource].siteurl);
-     
+     /**
+      * Redirect button to associated URL in modal
+      */
     $(`#modal-redirect-button`).click(function(e) {
       //  e.preventDefault();
        console.log(resources[resource].siteurl);
