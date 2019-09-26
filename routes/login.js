@@ -9,7 +9,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const {email, password} = req.body;
-    getUserByEmail(db, email)
+    db.userLogin(email, password)
       .then(id => {
         if (!id) {
           res.send({error: "error"});
