@@ -48,11 +48,6 @@ const renderResources = function(resources) {
      /**
       * Redirect button to associated URL in modal
       */
-    $(`#modal-redirect-button`).click(function(e) {
-      //  e.preventDefault();
-       console.log(resources[resource].siteurl);
-      window.location.href=`"${resources[resource].siteurl}"`;
-    });
   }
 }
 
@@ -74,6 +69,9 @@ const loadFavourites = () => {
 const loadFavouriteModal = (resource) => {
   //console.log(resource);
   $('#favouriteModal').remove();
+  $('#favouriteModal').on('hidden', function (e) {
+    $(e.currentTarget).unbind(); // or $(this)        
+});
   let date = convertDate(resource.created_at);
   $('body').append(`
   <div class="modal fade" id="favouriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -103,6 +101,10 @@ const loadFavouriteModal = (resource) => {
   </div>
 </div>
   `)
+  $(`#modal-redirect-button`).click(function(e) {
+     e.preventDefault();
+     $(location).attr('href', 'http://stackoverflow.com')
+  });
 }
 
 const convertDate = (dateobj) => {

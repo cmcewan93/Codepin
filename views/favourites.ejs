@@ -16,6 +16,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+  <script src="/scripts/dropdown.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/favourites.js"></script>
 
 
@@ -23,6 +25,7 @@
 
 
 <body>
+  <!-- NavBar -->
   <header>
      <% include ./partials/_header %>
   </header>
@@ -30,7 +33,7 @@
 
 
   <h1 id= "favourites-title">
-   User's Favourite Resources
+   <%=user[0].name %>'s Favourite Resources
   </h1>
 
   <div id="favourite-container">

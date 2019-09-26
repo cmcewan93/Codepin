@@ -8,9 +8,9 @@ const favourites = require("../database")
  */
 module.exports = () => {
   router.get("/", (req, res) => {
-    console.log('these are the params ', req.params)
     //Get favourites for user that is logged in
-    favourites.getFavouritesByUser(req.session.id)
+    console.log("userid", req.session.userId);
+    favourites.getFavouritesByUser(req.session.userId)
       .then(resource => {
         if (!resource) {
           res.send({error: "error"});

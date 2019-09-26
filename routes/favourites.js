@@ -3,9 +3,10 @@ const router  = express.Router();
 const favourites = require('../database')
 
 module.exports = () => {
-  router.get(`/:username`, (req, res) => {
+  router.get(`/`, (req, res) => {
     let templateVars = {};
-    Promise.all([favourites.getUser(req.session.id)])
+   //console.log("id", req.session.userId)
+    Promise.all([favourites.getUser(req.session.userId)])
       .then((values) => {
         templateVars.user = values[0];
         res.render("favourites", templateVars);
