@@ -5,12 +5,15 @@
   margin-left: 5em;
   margin-right: 5em;
 }
+.card {
+  margin-right: 25px;
+}
 
 #favourites-title {
   color: black;
   display: flex;
   flex-direction: row;
-  font-size: 80px;
+  font-size: 40px;
   justify-content: center;
   margin-top: 3%;
   margin-bottom: 5%;
@@ -38,15 +41,10 @@ body {
   padding: 32px;
 }
 
-<<<<<<< HEAD
 .modal-body {
   display: flex;
   flex-direction: row;
   justify-content:space-around;
-=======
-.modal-header {
->>>>>>> origin
-
 }
 
 
@@ -87,6 +85,9 @@ body {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
+}
+.card-img-top {
+  height: 60%;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */

@@ -1,11 +1,13 @@
 const createResourcesElement = function(value) {
   const resource = `
-  <div class="card" style="width: 50rem;" id="${value.resource_id}">
+
+<div class="card" style="width: 50rem;" id="${value.resource_id}">
     <img class="card-img-top" src="${value.imgurl}" alt="Card image cap" data-toggle="modal" data-target="#exampleModalCenter">
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">${value.description}</p>
   </div>
 </div>
+
   
   `
   return resource;
