@@ -69,7 +69,7 @@ exports.getResourceById = getResourceById;
 
 const getFavouritesByUser = (user_id) => {
   return pool.query(`
-  SELECT users.id as user_id, resources.id as resource_id, resources.title as title, resources.description as description, resources.imgUrl as imgurl, resources.created_at as created_at
+  SELECT users.id as user_id, resources.id as resource_id, resources.siteUrl as siteUrl, resources.title as title, resources.description as description, resources.imgUrl as imgurl, resources.created_at as created_at
   FROM favourites
     JOIN resources ON resources.id = favourites.resource_id
     JOIN users ON users.id = favourites.user_id

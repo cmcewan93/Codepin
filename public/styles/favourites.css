@@ -13,6 +13,8 @@
 }
 
  #favourite-container {
+  margin-left: 5em;
+  margin-right: 5em;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,19 +23,22 @@
 /*
   Favourites Modal
 */
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
 .modal-body {
   display: flex;
   flex-direction: row;
   justify-content:space-around;
 
-}
-
-#modal-favourite {
-  background-color: red;
-}
-
-.modal-header {
-  
 }
 
 
@@ -52,15 +57,7 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial;
-}
 
-.header {
-  text-align: center;
-  padding: 32px;
-}
 
 .row {
   display: -ms-flexbox; /* IE10 */
