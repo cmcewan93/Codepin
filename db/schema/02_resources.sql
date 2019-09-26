@@ -5,7 +5,11 @@ CREATE TABLE resources (
   title VARCHAR(255),
   description TEXT,
   tag VARCHAR(255),
+<<<<<<< HEAD
+  siteUrl VARCHAR(255),
+=======
   url VARCHAR(255),
+>>>>>>> origin
   imgUrl VARCHAR(255),
   created_at TIMESTAMP
 );

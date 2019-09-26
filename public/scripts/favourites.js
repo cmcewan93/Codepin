@@ -1,19 +1,29 @@
 const createResourcesElement = function(value) {
-  const $resource = `
-  <div class="column" id="${value.resource_id}">
-    <article class="favourite-display">
-      <header class="favourite-header">
-        <span>${value.title}</span>
-      </header>
-      <img src="${value.imgurl}" class="favourite-image" style="width:100% data-toggle="modal" data-target="#exampleModalCenter"/>
-      <footer class="favourite-footer">
-        ${convertDate(value.created_at)}
-      </footer>
-    </article>
+  const resource = `
+
+<div class="card" style="width: 50rem;" id="${value.resource_id}">
+    <img class="card-img-top" src="${value.imgurl}" alt="Card image cap" data-toggle="modal" data-target="#exampleModalCenter">
+  <div class="card-body">
+    <p class="card-text">${value.description}</p>
   </div>
-  `;
-  return $resource;
+</div>
+
+  
+  `
+  return resource;
 }
+
+  // <div class="column" id="${value.resource_id}">
+  //   <article class="favourite-display">
+  //     <header class="favourite-header">
+  //       <span>${value.title}</span>
+  //     </header>
+  //     <img src="${value.imgurl}" class="favourite-image" style="width:100%" data-toggle="modal" data-target="#exampleModalCenter"/>
+  //     <footer class="favourite-footer">
+  //       ${convertDate(value.created_at)}
+  //     </footer>
+  //   </article>
+  // </div>
 
 /**
  * Adds a favourite to page and creates click event on each element that toggles the modal
@@ -21,13 +31,26 @@ const createResourcesElement = function(value) {
  */
 const renderResources = function(resources) {
   for(let resource in resources) {
+    //console.log(resources[resource].resource_id);
    $('#favourite-container').prepend(createResourcesElement(resources[resource]));
    $(`#${resources[resource].resource_id}`).on('click', function(e) {
     e.preventDefault();
-    console.log(resources[resource]);
+    //console.log(resources[resource]);
     loadFavouriteModal(resources[resource]);
-     $('#favouriteModal').modal('toggle');
+    $('#favouriteModal').modal('toggle');
   });
+    $(`#${ resources[resource].resource_id }`).hover(function() {
+      $(`#${ resources[resource].resource_id }`).css("opacity", 0.5);
+    }, function() {
+      $(`#${ resources[resource].resource_id }`).css("opacity", 1);
+    });
+    console.log('dsfdsfsdfas', resources[resource].siteurl);
+     
+    $(`#modal-redirect-button`).click(function(e) {
+      //  e.preventDefault();
+       console.log(resources[resource].siteurl);
+      window.location.href=`"${resources[resource].siteurl}"`;
+    });
   }
 }
 
@@ -47,6 +70,7 @@ const loadFavourites = () => {
  */
 
 const loadFavouriteModal = (resource) => {
+  //console.log(resource);
   $('#favouriteModal').remove();
   let date = convertDate(resource.created_at);
   $('body').append(`
@@ -67,12 +91,10 @@ const loadFavouriteModal = (resource) => {
         </div>
       </div>
       <div class="modal-footer">
-        <div id="modal-footer-left>
-
-        </div>
+        <button type="button" class="btn btn-primary" id="modal-redirect-button">Go to Resource!</button>
         <div id="modal-footer-right">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
+          <button type="button" class="btn btn-primary" id="modal-favourite-button">Unfavourite</button>
          </div>
       </div>
     </div>
