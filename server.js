@@ -46,6 +46,7 @@ app.use(express.static("public"));
 const loginRoutes = require("./routes/login");
 const logoutRoutes= require("./routes/logout");
 const registerRoutes = require("./routes/register");
+const myResourceRoutes = require("./routes/my_resources");
 
 const searchRoutes = require("./routes/search");
 const apiResourceByIdRoute = require("./routes/apiResourceById");
@@ -67,6 +68,7 @@ const createResourceRoute = require("./routes/createResource");
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
+app.use("/my_resources", myResourceRoutes(db));
 
 app.use("/search", searchRoutes(db));
 app.use("/favourites", favouritesRoute(db));
