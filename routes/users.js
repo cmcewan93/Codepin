@@ -7,23 +7,17 @@
 
 const express = require('express');
 const router  = express.Router();
+const db = require('../database');
 
-module.exports = (db) => {
+module.exports = () => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-        users.forEach(user => {
-          // console.log(user.name);
-        });
+    let templateVars = {};
+    Promise.all([db.getUser(req.session.userId)])
+      .then((values) => {
+        templateVars.user = values[0];
+        res.render("users", templateVars);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+      .catch(err => console.error(null, err.stack));
   });
-
   return router;
 };

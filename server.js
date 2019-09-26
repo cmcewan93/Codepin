@@ -71,9 +71,10 @@ app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/my_resources", myResourceRoutes(db));
 
-app.use("/search", searchRoutes(db));
+// app.use("/", searchRoutes(db));
+app.use("/favourites", favouritesRoute(db));
 
-app.use("/api/users", usersRoutes(db));
+app.use("/users", usersRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 

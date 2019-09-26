@@ -134,7 +134,10 @@ const loadFavouriteModal = (resource) => {
     console.log('deleting favourite', resource.favourite_id )
     e.preventDefault();
     deleteFavourite(resource.favourite_id);
+    $('#favouriteModal').modal('toggle');
+    $(`div#${resource.favourite_id}.card`).remove();
  });
+
 }
 
 // Date conversion helper function
