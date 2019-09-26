@@ -33,6 +33,46 @@ div#resourceInfo {
   padding: 0 4px;
 }
 
+/*
+Modal box
+*/
+
+button#modal-favourite-button.btn.btn-primary {
+  background-color:red;
+  border-color: red;
+}
+#modal-redirect-button.btn.btn-primary {
+  margin-right: auto;
+}
+
+.modal-title {
+  margin-left: 35%;
+}
+
+.modal-image {
+  width: 100%;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+#modal-body-right {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#modal-body-left {
+  width: 40%;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #262626;
+}
 /* Create four equal columns that sits next to each other */
 .column {
   -ms-flex: 25%; /* IE10 */

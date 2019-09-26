@@ -83,7 +83,7 @@ const loadFavouriteModal = (resource) => {
    */
   $('#favouriteModal').remove();
   $('#favouriteModal').on('hidden', function (e) {
-    $('#modal-favourite-button').unbind(); // or $(this)        
+    $('#modal-unfavourite-button').unbind(); // or $(this)        
 });
   //convert date for modal
   let date = convertDate(resource.created_at);
@@ -109,7 +109,7 @@ const loadFavouriteModal = (resource) => {
         <button type="button" class="btn btn-primary" id="modal-redirect-button">Go to Resource!</button>
         <div id="modal-footer-right">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="modal-favourite-button">Unfavourite</button>
+          <button type="button" class="btn btn-primary" id="modal-unfavourite-button">Unfavourite</button>
          </div>
       </div>
     </div>
@@ -130,7 +130,7 @@ const loadFavouriteModal = (resource) => {
    * Remove favourite from user's favourites on click
    */
 
-  $(`#modal-favourite-button`).click(function(e) {
+  $(`#modal-unfavourite-button`).click(function(e) {
     console.log('deleting favourite', resource.favourite_id )
     e.preventDefault();
     deleteFavourite(resource.favourite_id);

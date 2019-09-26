@@ -32,28 +32,6 @@ const createResourcesElement = function(value) {
     </div>
     `)
   }
-//   const $resource = `
-
-// <div class="card">
-//   <img class="card-img-top" src="${ value.imgurl }" alt="Card image cap">
-//   <div class="card-body">
-//     <h5 class="card-title">Card title</h5>
-//     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-//     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-//   </div>
-// </div>
-// <div class="card p-3 text-right">
-//   <blockquote class="blockquote mb-0">
-//     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-//     <footer class="blockquote-footer">
-//       <small class="text-muted">
-//         Someone famous in <cite title="Source Title">Source Title</cite>
-//       </small>
-//     </footer>
-//   </blockquote>
-// </div>
-
-  // `;
   return renderedResourcesArray.join('');
 }
 
@@ -105,18 +83,24 @@ const loadResourceModal = (resource) => {
         </div>
       </div>
       <div class="modal-footer">
-        <div id="modal-footer-left>
-
-        </div>
+        <button type="button" class="btn btn-primary" id="modal-redirect-button">Go to Resource!</button>
         <div id="modal-footer-right">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
+          <button type="button" class="btn btn-primary" id="modal-favourite-button">Favourite</button>
          </div>
       </div>
     </div>
   </div>
 </div>
   `)
+  /**
+   * Redirect user to the resource site url
+   */
+
+  $(`#modal-redirect-button`).click(function(e) {
+    e.preventDefault();
+    $(location).attr('href', `${resource.siteurl}`)
+ });
 }
 
 
