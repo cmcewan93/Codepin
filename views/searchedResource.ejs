@@ -18,7 +18,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="/scripts/dropdown.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script src="/scripts/search.js"></script>
+  <!-- <script src="/scripts/search.js"></script> -->
 </head>
 
 <body>
@@ -28,9 +28,35 @@
 </header>
 
 <!-- Photo Grid -->
-<div id="resources" class="card-columns">
-</div>
+<div id="searched-resources" class="card-columns">
 
+  <% for(let resource in resources) { %>
+    <% if(!resources[resource].imgurl) {%>
+      <div class="card text-white text-center p-3" data-toggle="modal" data-target="#exampleModalCenter">
+          <blockquote class="blockquote mb-0">
+            <p><%= resources[resource].description %></p>
+            <footer class="blockquote-footer">
+              <small>
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+    <% } else if(!resources[resource].title && !resources[resource].description) { %>
+      <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+          <img class="card-img" src="<%= resources[resource].imgurl %>" alt="Card image">
+        </div>
+    <% } else { %>
+      <div id="${ value.id }" class="card" data-toggle="modal" data-target="#exampleModalCenter">
+          <img class="card-img-top" src="<%= resources[resource].imgurl %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= resources[resource].title %></h5>
+            <p class="card-text"><%= resources[resource].description %></p>
+          </div>
+        </div>
+    <% } %>
+  <% } %>
+</div>
 <!-- partial -->
   <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script> -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>

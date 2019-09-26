@@ -95,7 +95,7 @@ app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db));
 app.use("/create", createResourceRoute(db));
 //rendering our page with data
 
-app.use("/search", searchRoute());
+// app.use("/search", searchRoute());
 app.use("/resources", resourcesRoutes());
 app.use("/resources/:id", resourceByIdRoute());
 
@@ -106,6 +106,7 @@ app.use("/resources/:id", resourceByIdRoute());
 
 app.get("/", (req, res) => {
   let templateVars = {};
+  console.log("jk", req.body)
   Promise.all([db.getUser(req.session.userId)])
     .then((values) => {
       templateVars.user = values[0];
