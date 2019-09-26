@@ -13,6 +13,7 @@ module.exports = () => {
     console.log(req.body)
     db.userRegister(user)
       .then(id => {
+        console.log("at register", id);
         if (!id) {
           res.send({error: "error"});
           return;
