@@ -11,7 +11,7 @@ module.exports = () => {
     const {email, password} = req.body;
     console.log("credential", {email, password});
     console.log("login")
-    console.log("at login", req)
+    // console.log("at login", req)
     db.userLogin(email, password)
       .then(id => {
         console.log('asdasd', id);
