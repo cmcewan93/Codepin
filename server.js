@@ -59,7 +59,7 @@ const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
 const resourcesRoutes = require("./routes/resources");
 
-
+const createResourceRoute = require("./routes/createResource");
 
 // const renderResources = require("./routes/resources");
 // Mount all resource routes
@@ -86,7 +86,9 @@ app.use("/api/favourites", apiFavouritesRoute(db));
 app.use("/api/resourceById", apiResourceByIdRoute(db));
 app.use("/api/deleteFavourite", apiDeleteFavouriteRoute(db))
 
+app.use("/create", createResourceRoute(db));
 //rendering our page with data
+
 app.use("/resources", resourcesRoutes());
 app.use("/resources/:id", resourceByIdRoute());
 

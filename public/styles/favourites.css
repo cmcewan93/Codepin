@@ -1,6 +1,10 @@
 /*
  Favourites Container
 */
+.card-columns {
+  margin-left: 5em;
+  margin-right: 5em;
+}
 
 #favourites-title {
   color: black;
@@ -16,7 +20,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-} 
+}
 
 /*
   Favourites Modal
@@ -33,7 +37,7 @@
 }
 
 .modal-header {
-  
+
 }
 
 
