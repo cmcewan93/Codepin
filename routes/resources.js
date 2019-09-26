@@ -19,22 +19,5 @@ module.exports = () => {
       })
       .catch(err => console.error(null, err.stack));
   });
-
-  // router.get("/my_resources", (req, res) => {
-  //   // console.log('sdfsdfsd' + res);
-  //   console.log("i got here");
-  //   console.log(req.params);
-  //   resources.getResourceById(req.params.id)
-  //     .then(resource => {
-  //       if (!resource) {
-  //         res.send({error: "error"});
-  //         return;
-  //       } else {
-  //         res.json({ resource });
-  //         // console.log("i did it son!")
-  //       }
-  //     }).catch(err => console.error(null, err.stack));
-  // });
-
   return router;
 };

@@ -71,7 +71,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/my_resources", myResourceRoutes(db));
 
-app.use("/", searchRoutes(db));
+// app.use("/", searchRoutes(db));
 app.use("/favourites", favouritesRoute(db));
 
 app.use("/api/users", usersRoutes(db));
