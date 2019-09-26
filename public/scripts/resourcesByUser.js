@@ -59,14 +59,13 @@ const createResourcesElement = function(value) {
 
 const renderResources = function(resources) {
   for(let resource in resources) {
+    console.log(resources);
     resources[resource].forEach(element => {
-      $('#resources').prepend(createResourcesElement(element));
+      $('#resources-by-user').prepend(createResourcesElement(element));
       //Redirect to a specific resource
       $(`#${ element.id }`).click(function() {
         // alert($(title).text());
         // window.location.href = `/resources/${ element.id }`;
-        loadResourceModal(element);
-        $('#resourceModal').modal('toggle');
       });
 
       $(`#${ element.id }`).hover(function() {
@@ -78,91 +77,14 @@ const renderResources = function(resources) {
   }
 }
 
-/**
- * Dynamically creates a modal with the resource data passed in
- * @param {} resource
- */
-
-const loadResourceModal = (resource) => {
-  $('#resourceModal').remove();
-  let date = convertDate(resource.created_at);
-  console.log(date);
-  $('body').append(`
-  <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
-  <div class = "modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="resourceModalLongTitle">${resource.title}</h3>
-        <h3 class="modal-title" id ="resourceModalDate">Created at: ${date}</h3>
-      </div>
-      <div class="modal-body">
-        <div id="modal-body-left">
-         <img src="${resource.imgurl}" class="modal-image"></img>
-      </div>
-        <div id="modal-body-right">
-          <p>${resource.description}</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div id="modal-footer-left>
-
-        </div>
-        <div id="modal-footer-right">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="modal-favourite">Unfavourite</button>
-         </div>
-      </div>
-    </div>
-  </div>
-</div>
-  `)
-}
-
-
-const convertDate = (dateobj) => {
-  let date = new Date(dateobj);
-
-  // console.log(dateobj);
-  // console.log(date.getMonth());
-  let fdate = (date.getMonth() + 1)+'/'+ date.getDate()  +'/'+date.getFullYear()
-  return fdate;
-}
-
 const loadResources = () => {
   $.ajax({
     method: "GET",
-    url: "/api/resources"
+    url: "/api/resourcesByUser"
   }).done((resources) => {
     // console.log(resources, "asjdjahkda");
     renderResources(resources);
   });;
-}
-
-const loadFavouriteModal = (resource) => {
-  e.preventDefault();
-  $('body').append(`
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  `)
 }
 
 loadResources();
