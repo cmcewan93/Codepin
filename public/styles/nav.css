@@ -25,6 +25,25 @@
   margin: 0 auto;
 }
 
+.logout {
+  background-color: #262626;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 16px 73px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logout:hover {
+  background-color: #2581DC;
+  color: white;
+}
+
+.dropform {
+  margin: 0;
+  padding: 0;
+}
+
 nav {
   float: right;
 }
@@ -45,6 +64,7 @@ nav ul li a:visited {
   background: #262626;
   color: #ffffff;
   text-decoration: none;
+  text-align: center;
 }
 nav ul li a:hover,
 nav ul li a:visited:hover {

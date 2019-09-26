@@ -1,13 +1,16 @@
 const express = require('express');
 const router  = express.Router();
+const db = require('../database');
 
-module.exports = (db) => {
+module.exports = () => {
   router.get("/", (req, res) => {
     res.render("register");
   });
 
   router.post("/", (req, res) => {
     const user = req.body;
+    console.log("register")
+    console.log(req.body)
     db.userRegister(user)
       .then(id => {
         if (!id) {

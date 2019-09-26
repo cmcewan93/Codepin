@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePin</title>
+  <title>Codepin Favourites</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -15,51 +15,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
+
   <script type="text/javascript" src="/scripts/favourites.js"></script>
 
 
 </head>
-<section class="navigation">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="/">Codepin</a>
-      </div>
-      <nav>
-        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/create">Create</a>
-          </li>
-          <li>
-            <a href="/resources">Resources</a>
-          </li>
-          <li>
-            <a href="#">Accounts</a>
-            <ul class="nav-dropdown">
-              <li>
-                <a href="/user/:userid">Profile</a>
-              </li>
-              <li>
-                <a href="/resources/:userid">My Resources</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="/">Logout</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </section>
-  
+
+
 <body>
+  <header>
+     <% include ./partials/_header %>
+  </header>
 
-
-  
 
 
   <h1 id= "favourites-title">
@@ -68,7 +35,7 @@
 
   <div id="favourite-container">
     <div class="row" >
-      
+
     </div>
   </div>
 

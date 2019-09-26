@@ -53,7 +53,7 @@ form {
 input, #search {
   width: 350px;
   background: transparent;
-  border-color: #B5475E;
+  border-color: #2581DC;
 }
 
 ::placeholder {
@@ -68,7 +68,7 @@ form {
 
 button {
   font-family: sans-serif;
-  color: #B5475E;
+  color: #2581DC;
   background: white;
 }
 

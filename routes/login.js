@@ -1,18 +1,20 @@
 const express = require('express');
 const router  = express.Router();
-const getUserByEmail = require('../lib/getUserByEmail');
+const db = require('../database');
 
-module.exports = (db) => {
+module.exports = () => {
   router.get("/", (req, res) => {
     res.render("login");
   });
 
-  router.post("/", (req, res) => {
+  router.post("/login", (req, res) => {
     const {email, password} = req.body;
-    getUserByEmail(db, email)
+    console.log("login")
+    console.log(req.body)
+    db.userLogin(email, password)
       .then(id => {
         if (!id) {
-          res.send({error: "error"});
+          res.send({"code":204, "success": "Email and password do not match"});
           return;
         } else {
           req.session.userId = id.id;

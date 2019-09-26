@@ -1,9 +1,49 @@
-<header class="header">
-  <h1 class="logo"><a href="#">Codepin</a></h1>
-    <ul class="main-nav">
-      <li><a href="/resources">Home</a></li>
-      <li><a href="/favourites">Favourites</a></li>
-      <li><a href="/accounts">Accounts</a></li>
-
-     </ul>
-</header>
+<section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="/">Codepin</a>
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/create">Create</a>
+          </li>
+          <li>
+            <a href="/resources">Resources</a>
+          </li>
+          <li>
+          <% if (!user) { %>
+            <li>
+              <a href="/login">Login</a>
+            </li>
+            <li>
+              <a href="/register">Register</a>
+            </li>
+          <% } else { %>
+            <a href="#"><%=user[0].name%>'s Account</a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="/user/:username">Profile</a>
+              </li>
+              <li>
+                  <a href="/favourites/:username">My Favourites</a>
+              </li>
+              <li>
+                <a href="/my_resources">My Resources</a>
+              </li>
+              <li>
+                  <form class="dropform" method="POST" action="/logout">
+                    <button class= "logout">Logout</button>
+                  </form>
+              </li>
+            </ul>
+          </li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+  </section>
