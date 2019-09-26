@@ -10,7 +10,13 @@ const resources = require('../database');
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    res.render("resources");
+    let templateVars = {};
+    Promise.all([resources.getUser(req.session.userId)])
+      .then((values) => {
+        templateVars.user = values[0];
+        res.render("resources", templateVars);
+      })
+      .catch(err => console.error(null, err.stack));
   });
 
   router.get("/:id", (req, res) => {
