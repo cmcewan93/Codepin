@@ -15,9 +15,6 @@ module.exports = () => {
   // });
 
   router.get("/", (req, res) => {
-    console.log("?????", req.query);
-    console.log("?????", req.body);
-    console.log("?????", req.params);
 
     // res.send('OK');
     search.searchByTag(req.query.tag)
@@ -27,16 +24,16 @@ module.exports = () => {
           res.send({error: "error"});
           return;
         } else {
-          // res.json({ resource });
-        let templateVars = { resources: resource };
-        console.log("id", req.session.userId);
-        console.log("WTF", req.body)
-        Promise.all([search.getUser(req.session.userId)])
-          .then((values) => {
-            templateVars.user = values[0];
-            res.render("searchedResource", templateVars);
-          })
-          .catch(err => console.error(null, err.stack));
+          res.json({ resource });
+        // let templateVars = { resources: resource };
+        // console.log("id", req.session.userId);
+        // console.log("WTF", req.body)
+        // Promise.all([search.getUser(req.session.userId)])
+        //   .then((values) => {
+        //     templateVars.user = values[0];
+        //     res.render("searchedResource", templateVars);
+        //   })
+        //   .catch(err => console.error(null, err.stack));
         }
       }).catch(err => console.error(null, err.stack));
   });

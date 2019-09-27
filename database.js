@@ -62,9 +62,11 @@ exports.getUser = getUser;
 //Resources: Get all available resource
 const getAllResources = (limit) => {
   return pool.query(`
-  SELECT *
+  SELECT resources.*, likes.like_count as likes
   FROM resources
-  LIMIT $1
+    LEFT JOIN likes ON resources.id = likes.resource_id
+  ORDER BY resources.id
+  LIMIT $1;
   `, [limit]
   ).then((res) => {
     return res.rows;

@@ -100,7 +100,7 @@ app.use("/api/resourceById", apiResourceByIdRoute(db));
 app.use("/create", createResourceRoute(db));
 //rendering our page with data
 
-// app.use("/search", searchRoute());
+app.use("/search", searchRoute());
 app.use("/resources", resourcesRoutes());
 app.use("/resources/:id", resourceByIdRoute());
 

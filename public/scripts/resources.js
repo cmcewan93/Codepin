@@ -2,16 +2,15 @@
 const createResourcesElement = function(value) {
   // console.log(value.id);
   const renderedResourcesArray = [];
+  if(!value.likes) {
+    value.likes = 0;
+  }
   if(!value.imgurl) {
     renderedResourcesArray.push(`
     <div id="${ value.id }" class="card text-white text-center p-3" data-toggle="modal" data-target="#exampleModalCenter">
       <blockquote class="blockquote mb-0">
         <p>${ value.description }</p>
-        <footer class="blockquote-footer">
-          <small>
-            Someone famous in <cite title="Source Title">Source Title</cite>
-          </small>
-        </footer>
+        <span><i class="far fa-thumbs-up" style="color: #ff9900";>${ value.likes }</i></span>
       </blockquote>
     </div>
     `)
@@ -19,6 +18,7 @@ const createResourcesElement = function(value) {
     renderedResourcesArray.push(`
     <div id="${ value.id }" class="card" data-toggle="modal" data-target="#exampleModalCenter">
       <img class="card-img" src="${ value.imgurl }" alt="Card image">
+      <span style="margin-left: 5px; margin-"><i class="far fa-thumbs-up" style="color: #ff9900";>${ value.likes }</i></span>
     </div>
     `)
   } else {
@@ -28,6 +28,7 @@ const createResourcesElement = function(value) {
       <div class="card-body">
         <h5 class="card-title">${ value.title }</h5>
         <p class="card-text">${ value.description }</p>
+        <span><i class="far fa-thumbs-up" style="color: #ff9900";>${ value.likes }</i></span>
       </div>
     </div>
     `)
