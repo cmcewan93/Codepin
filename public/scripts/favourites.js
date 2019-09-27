@@ -133,9 +133,10 @@ const loadFavouriteModal = (resource) => {
   $(`#modal-unfavourite-button`).click(function(e) {
     console.log('deleting favourite', resource.favourite_id )
     e.preventDefault();
+    $(`div#${resource.favourite_id}.card`).remove();
     deleteFavourite(resource.favourite_id);
     $('#favouriteModal').modal('toggle');
-    $(`div#${resource.favourite_id}.card`).remove();
+    // $(`div#${resource.favourite_id}.card`).remove();
  });
 
 }

@@ -58,10 +58,13 @@ const apiResourcesByUserRoutes = require("./routes/apiResourcesByUser");
 const favouritesRoute = require("./routes/favourites");
 const apiFavouritesRoute = require("./routes/apiFavourites");
 const apiDeleteFavouriteRoute = require("./routes/apiDeleteFavourite");
+const apiAddFavouriteRoute = require("./routes/apiAddFavourite");
 
 const usersRoutes = require("./routes/users");
 const apiResourcesRoutes = require("./routes/apiResources");
 const resourcesRoutes = require("./routes/resources");
+
+
 
 const createResourceRoute = require("./routes/createResource");
 
@@ -88,7 +91,8 @@ app.use("/api/resourceById", apiResourceByIdRoute(db));
 app.use("/api/searchedResources", apiSearchRoute(db));
 app.use("/api/favourites", apiFavouritesRoute(db));
 app.use("/favourites", favouritesRoute(db));
-app.use("/api/favourites/delete", apiDeleteFavouriteRoute(db))
+app.use("/api/favourites/delete", apiDeleteFavouriteRoute(db));
+app.use("/api/favourites/add", apiAddFavouriteRoute(db));
 
 app.use("/api/resourcesByUser", apiResourcesByUserRoutes(db));
 app.use("/api/resourceById", apiResourceByIdRoute(db));

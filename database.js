@@ -130,6 +130,7 @@ const searchByTag = (tag) => {
 
 exports.searchByTag = searchByTag;
 
+//delete favourite
 const deleteFavourite = (favourite_id) => {
   return pool.query(`
   DELETE FROM favourites
@@ -138,6 +139,19 @@ const deleteFavourite = (favourite_id) => {
 };
 
 exports.deleteFavourite = deleteFavourite;
+
+//add favourite
+const addFavourite = (favourite) => {
+console.log('This is the favourite', favourite);
+  return pool.query(`
+  INSERT INTO favourites (user_id, resource_id)
+  VALUES ($1, $2);
+  `,[favourite.user, favourite.id])
+  .then(res => console.log(res.rows))
+  .catch(err => console.error(null, err.stack));
+}
+
+exports.addFavourite = addFavourite;
 
 //Create resource
 const createResource = (resource) => {

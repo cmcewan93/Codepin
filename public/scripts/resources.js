@@ -101,14 +101,31 @@ const loadResourceModal = (resource) => {
     e.preventDefault();
     $(location).attr('href', `${resource.siteurl}`)
  });
+  /**
+   * Adds resource to user's favourite
+   */
+
+ $(`#modal-favourite-button`).click(function(e) {
+  console.log('adding favourite', resource)
+  e.preventDefault();
+  addFavourite(resource);
+  $('#favouriteModal').modal('toggle');
+});
+
+$(`#modal-unfavourite-button`).click(function(e) {
+  console.log('deleting favourite', resource.favourite_id )
+  e.preventDefault();
+  $(`div#${resource.favourite_id}.card`).remove();
+  deleteFavourite(resource.favourite_id);
+  $('#favouriteModal').modal('toggle');
+  // $(`div#${resource.favourite_id}.card`).remove();
+});
 }
 
 
 const convertDate = (dateobj) => {
   let date = new Date(dateobj);
 
-  // console.log(dateobj);
-  // console.log(date.getMonth());
   let fdate = (date.getMonth() + 1)+'/'+ date.getDate()  +'/'+date.getFullYear()
   return fdate;
 }
@@ -123,30 +140,15 @@ const loadResources = () => {
   });;
 }
 
-const loadFavouriteModal = (resource) => {
-  e.preventDefault();
-  $('body').append(`
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  `)
+const addFavourite = (resource) => {
+  //console.log('@@@@@@@', resource);
+  // console.log(req.sess)
+  $.ajax({
+    method: "Post",
+    url: "/api/favourites/add",
+    data: {resource}
+  })
 }
+
 
 loadResources();
